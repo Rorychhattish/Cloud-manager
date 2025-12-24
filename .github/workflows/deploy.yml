@@ -8,7 +8,6 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -29,13 +28,12 @@ jobs:
           file: ./backend/Dockerfile
           push: true
           tags: |
-            chhattish/cloud-manager:latest
-            chhattish/cloud-manager:${{ github.sha }}
+            rorychhattish/cloud-manager:latest
+            rorychhattish/cloud-manager:${{ github.sha }}
 
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -45,7 +43,7 @@ jobs:
         with:
           app-name: ${{ secrets.AZURE_APP_SERVICE_NAME }}
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          images: chhattish/cloud-manager:latest
+          images: rorychhattish/cloud-manager:latest
 
       - name: Deployment completed
         run: echo "✅ Deployment to Azure App Service completed successfully"
