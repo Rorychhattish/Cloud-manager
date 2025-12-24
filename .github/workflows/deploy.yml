@@ -31,9 +31,7 @@ jobs:
           tags: |
             chhattish/cloud-manager:latest
             chhattish/cloud-manager:${{ github.sha }}
-          cache-from: type=registry,ref=chhattish/cloud-manager:buildcache
-          cache-to: type=registry,ref=chhattish/cloud-manager:buildcache,mode=max
-
+          
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
