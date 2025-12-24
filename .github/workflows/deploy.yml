@@ -31,7 +31,7 @@ jobs:
           tags: |
             chhattish/cloud-manager:latest
             chhattish/cloud-manager:${{ github.sha }}
-          
+
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
