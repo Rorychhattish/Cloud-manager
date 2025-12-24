@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+azure-storage-blob
+azure-cosmos
+python-multipart
+pydantic
+python-dotenv
